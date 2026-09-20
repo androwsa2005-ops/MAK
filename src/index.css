@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 0 0% 100%;
+    --card: 222 40% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 40% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 16% 57%;
+    --accent: 222 30% 12%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 20% 16%;
+    --input: 222 20% 16%;
+    --ring: 190 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-[#0a0e1a] text-white font-['Inter'] antialiased;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-24 px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-max-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#00d4ff] to-[#00a8cc] bg-clip-text text-transparent;
+  }
+
+  .glow-border {
+    @apply border border-[#1e293b] hover:border-[rgba(0,212,255,0.3)] transition-all duration-300;
+  }
+
+  .card-glow {
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.05);
+  }
+
+  .card-glow-hover:hover {
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.25);
+  }
+
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.35);
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+}
+
+/* RTL: Force scrollbar on the left side */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+/* Custom scrollbar - left side for RTL */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #162033;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3048;
+}
+
+::-webkit-scrollbar-corner {
+  background: #0a0e1a;
+}
+
+/* Float animation - gentle up/down */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: white;
+}
